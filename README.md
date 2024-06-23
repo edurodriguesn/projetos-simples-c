@@ -1,6 +1,10 @@
 # Projetos simples em C/C++ feitos durante a faculdade de Ciência da Computação na UNIFAP
 
 ## Como executar
+### Compilador Online
+- Abra o [OnlineGDB](https://www.onlinegdb.com/), cole o código, escolha a linguagem correta e execute. Existem outros sites semelhates que também podem ser usados.
+
+### Localmente
 - **Caso esteja no sistema Windows é necessário executar o seguinte passo:**
 1. **Baixe o MinGW**: Vá para o [site oficial do MinGW](http://www.mingw.org/), baixe e execute o instalador.
 
@@ -9,6 +13,7 @@
      - Abra o Painel de Controle > Sistema > Configurações avançadas do sistema > Variáveis de ambiente.
      - Na seção "Variáveis do sistema", encontre a variável "Path" e clique em "Editar".
      - Adicione o caminho para o diretório `bin` do MinGW (por exemplo, `C:\MinGW\bin`).
+
 
 - Após isso abra o terminal, caminhe até a pasta do arquivo e execute os seguintes comandos:
 1. **Compilação do código**
