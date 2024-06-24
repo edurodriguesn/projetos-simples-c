@@ -12,3 +12,4 @@ Este programa é uma implementação simples do jogo Blacjack ou 21
 - Adicionar a função de dividir o jogo em caso de cartas iguais.
 - Adicionar a função de jogar de novo ou encerrar o programa
 - Adicionar um sistema de dinheiro no jogo, após a função de jogar mais vezes.
+- Implenentar a contagem de cartas no `Contar-cartas.c`.
