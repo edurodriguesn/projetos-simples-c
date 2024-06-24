@@ -11,12 +11,12 @@ int main()
     scanf("%f",&valor);
     printf("Taxa(%%): ");
     scanf("%f",&taxa);
-    printf("1- Ao dia\n2- Ao mês\n3- Ao ano\n");
+    printf("1- Ao dia\n2- Ao mes\n3- Ao ano\n");
     do
         scanf("%d",&tipotaxa);
     while(tipotaxa<1||tipotaxa>3);
 
-    printf("Seu período será em:\n1- Dias\n2- Meses\n3- Anos\n");
+    printf("Seu periodo sera em:\n1- Dias\n2- Meses\n3- Anos\n");
     do
         scanf("%d",&tipo_de_periodo);
     while(tipo_de_periodo<1||tipo_de_periodo>3);

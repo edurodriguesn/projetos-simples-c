@@ -30,7 +30,7 @@ No Linux:
 ```
 No Windows:
 ```bash
-Programa.exe
+./Programa.exe
 ```
 
 - Lembre-se de alterar os nomes de `Programa` e `CodigoFonte.c` ou `CodigoFonte.cpp` para os nomes verdadeiros.
