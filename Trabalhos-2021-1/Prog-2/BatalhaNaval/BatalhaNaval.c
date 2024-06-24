@@ -1,0 +1,376 @@
+#include <stdio.h>
+int x[3],y[3],i,j,malha[12][12],orien[3],k=0,verif=0,atx,aty,pontos=0;
+void barcos()
+{
+    for(i=0;i<3;i++)
+    {
+        do
+        {
+            printf("Escolha as coordenadas do barco de tamanho %d:\n",i+2);
+            do
+            {
+                printf("x: ");
+                scanf("%d",&x[i]);
+                if(x[i]<=12&&x[i]>0)
+                {
+                    printf("y: ");
+                    scanf("%d",&y[i]);
+                }
+            }
+            while(x[i]>12||x[i]<1);
+            x[i]=x[i]-1;
+            y[i]=y[i]-1;
+            do
+            {
+                printf("Vertical(1) ou horizontal(2)?: ");
+                scanf("%d",&orien[i]);
+            }
+            while(orien[i]<1||orien[i]>2);
+        }
+        while(verif==1);
+        if(orien[i]==1)
+        {
+            if(i==0)
+            {
+                k=2;
+                for(j=0;j<=1;j++)
+                {
+                    if(x[i]>=11)
+                    {
+                        malha[x[i]-(k-2)][y[i]]=1;
+                    }
+                    else
+                    {
+                        malha[x[i]+(k-2)][y[i]]=1;
+                    }
+                    k++;
+                }
+            }
+            else if(i==1)
+            {
+                k=1;
+                for(j=0;j<=2;j++)
+                {
+                    if(x[i]>=10)
+                    {
+                        if(malha[x[i]-(k-1)][y[i]]==0)
+                        {
+                            malha[x[i]-(k-1)][y[i]]=1;
+                            k++;
+                        }
+                        else
+                        {
+                            j=2;
+                            i--;
+                            verif=1;
+                        }
+                    }
+                    else
+                    {
+                        if(malha[x[i]+(k-1)][y[i]]==0)
+                        {
+                            malha[x[i]+(k-1)][y[i]]=1;
+                            k++;
+                        }
+                        else
+                        {
+                            j=2;
+                            i--;
+                            verif=1;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for(j=0;j<=3;j++)
+                {
+                    if(x[i]>=9)
+                    {
+                        if(malha[x[i]-k][y[i]]==0)
+                        {
+                            malha[x[i]-k][y[i]]=1;
+                            k++;
+                        }
+                        else
+                        {
+                            j=3;
+                            i--;
+                            verif=1;
+                        }
+                    }
+                    else
+                    {
+                        if(malha[x[i]+k][y[i]]==0)
+                        {
+                            malha[x[i]+k][y[i]]=1;
+                            k++;
+                        }
+                        else
+                        {
+                            j=3;
+                            i--;
+                            verif=1;
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            if(i==0)
+            {
+                k=2;
+                for(j=0;j<=1;j++)
+                {
+                    if(y[i]>=11)
+                    {
+                        malha[x[i]][y[i]-(k-2)]=1;
+                    }
+                    else
+                    {
+                        malha[x[i]][y[i]+(k-2)]=1;
+                    }
+                    k++;
+                }
+            }
+            else if(i==1)
+            {
+                k=1;
+                for(j=0;j<=2;j++)
+                {
+                    if(y[i]>=10)
+                    {
+                        if(malha[x[i]][y[i]-(k-1)]==0)
+                        {
+                            malha[x[i]][y[i]-(k-1)]=1;
+                            k++;
+                        }
+                        else
+                        {
+                            j=2;
+                            i--;
+                            verif=1;
+                        }
+                    }
+                    else
+                    {
+                        if(malha[x[i]][y[i]+(k-1)]==0)
+                        {
+                            malha[x[i]][y[i]+(k-1)]=1;
+                            k++;
+                        }
+                        else
+                        {
+                            j=2;
+                            i--;
+                            verif=1;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for(j=0;j<=3;j++)
+                {
+                    if(x[i]>=9)
+                    {
+                        if(malha[x[i]][y[i]-k]==0)
+                        {
+                            malha[x[i]][y[i]-k]=1;
+                            k++;
+                        }
+                        else
+                        {
+                            j=3;
+                            i--;
+                            verif=1;
+                        }
+                    }
+                    else
+                    {
+                        if(malha[x[i]][y[i]+k]==0)
+                        {
+                            malha[x[i]][y[i]+k]=1;
+                            k++;
+                        }
+                        else
+                        {
+                            j=3;
+                            i--;
+                            verif=1;
+                        }
+                    }
+                }
+            }
+        }
+        printf("   1 2 3 4 5 6 7 8 9 10 11 12\n");
+        for(k=0;k<12;k++)
+        {
+            if(k<9)
+            {
+                printf(" %d|",k+1);
+            }
+            else
+            {
+                printf("%d|",k+1);
+            }
+            for(j=0;j<12;j++)
+            {
+                if(malha[k][j]==0)
+                {
+                    if(j<10)
+                    {
+                        printf("- ");
+                    }
+                    else
+                    {
+                        printf(" - ");
+                    }
+                }
+                else
+                {
+                    if(j<10)
+                    {
+                        printf("X ");
+                    }
+                    else
+                    {
+                        printf(" X ");
+                    }
+                }
+            }
+            printf("\n");
+        }
+        k=0;
+        verif=0;
+    }
+}
+void atirar()
+{
+    printf("Digite as coordenadas para atacar: \n");
+    for(k=0;k<20;k++)
+    {
+        if(pontos<9&&20-k>=9-pontos)
+        {
+            do
+            {
+                printf("x: ");
+                scanf("%d",&atx);
+                if(atx>0&&atx<13)
+                {
+                    printf("y: ");
+                    scanf("%d",&aty);
+                }
+            }
+            while(atx<1||malha[atx-1][aty-1]==3||atx>12);
+            atx=atx-1;
+            aty=aty-1;
+            if(malha[atx][aty]==1)
+            {
+                malha[atx][aty]=2;
+                printf("Acertou\n");
+                pontos++;
+            }
+            else
+            {
+                malha[atx][aty]=3;
+                printf("Errou\n");
+            }
+            printf("   1 2 3 4 5 6 7 8 9 10 11 12\n");
+            for(i=0;i<12;i++)
+            {
+                if(i<9)
+                {
+                    printf(" %d|",i+1);
+                }
+                else
+                {
+                    printf("%d|",i+1);
+                }
+                for(j=0;j<12;j++)
+                {
+                    if(malha[i][j]==1||malha[i][j]==0)
+                    {
+                        if(j<10)
+                        {
+                        printf("- ");
+                        }
+                        else
+                        {
+                            printf(" - ");
+                        }
+                    }
+                    else if(malha[i][j]==2)
+                    {
+                        if(j<10)
+                        {
+                        printf("X ");
+                        }
+                        else
+                        {
+                            printf(" X ");
+                        }
+                    }
+                    else
+                    {
+                        if(j<10)
+                        {
+                        printf("º ");
+                        }
+                        else
+                        {
+                            printf(" º ");
+                        }
+                    }
+                }
+                printf("\n");
+            }
+            if(pontos==9||20-k<9-pontos)
+            {
+                k=19;
+            }
+        }
+    }
+}
+int main()
+{
+    printf("   1 2 3 4 5 6 7 8 9 10 11 12\n");
+    for(i=0;i<12;i++)
+    {
+        if(i<9)
+        {
+            printf(" %d|",i+1);
+        }
+        else
+        {
+            printf("%d|",i+1);
+        }
+        for(j=0;j<12;j++)
+        {
+            malha[i][j]=0;
+            if(j<10)
+            {
+            printf("- ");
+            }
+            else
+            {
+                printf(" - ");
+            }
+        }
+        printf("\n");
+    }
+    barcos();
+    printf("\n\n\n\n\n\n\n\n\n\n");
+    atirar();
+    if(pontos==9)
+    {
+        printf("Vitoria");
+    }
+    else
+    {
+        printf("Derrota");
+    }
+    return 0;
+}
+
