@@ -1,4 +1,4 @@
-# Projetos simples em C/C++ feitos durante a faculdade de Ciência da Computação na UNIFAP
+# 1ª Lista de Computação Gráfica
 
 ## Como executar
 ### Compilador Online
