@@ -17,7 +17,7 @@ void calcular_circunferencia(float pontos[3][2], float *h, float *k, float *r) {
     *r = sqrt((x1 - *h) * (x1 - *h) + (y1 - *k) * (y1 - *k));
 }
 
-int main() {
+int questao9() {
     float pontos[3][2];
     float h, k, r;
 

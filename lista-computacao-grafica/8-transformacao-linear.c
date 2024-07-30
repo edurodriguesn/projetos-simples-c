@@ -5,7 +5,7 @@ void aplicar_transformacao(float T[2][2], float ponto[2], float ponto_transforma
     ponto_transformado[1] = T[1][0] * ponto[0] + T[1][1] * ponto[1];
 }
 
-int main() {
+int questao8() {
     float T[2][2];
     int n;
     

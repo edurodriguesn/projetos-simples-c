@@ -2,31 +2,15 @@
 matriz quadrada de ordem_matriz n. O determinante é uma função que 
 associa um único número a uma matriz quadrada, fundamental 
 em várias áreas da álgebra linear.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 int i,j;
-void dar_valores_aleatorios(int ordem_matriz, int matriz[ordem_matriz][ordem_matriz]) {
-    srand(time(NULL));
-    for(i=0; i<ordem_matriz; i++) {
-        for(j=0; j<ordem_matriz; j++) {
-            matriz[i][j]=rand()%20;
-        }
-    }
-}
-void definir_valores_manualmente(int ordem_matriz, int matriz[ordem_matriz][ordem_matriz]) {
-    int valor;
-    for(i=0; i<ordem_matriz; i++) {
-        for(j=0; j<ordem_matriz; j++) {
-            printf("Linha %d, coluna %d: ", i,j);
-            scanf("%d",&valor);
-            matriz[i][j]=valor;
-        }
-    }
-}
+
 //função para atribuir os valores da matriz original à matriz temporária
-void gerarSubmatriz(int ordem_matriz, int matriz[ordem_matriz][ordem_matriz], int submatriz[ordem_matriz-1][ordem_matriz-1], int linha_excluida, int coluna_excluida) {
+void gerarSubmatriz(int ordem_matriz, float matriz[ordem_matriz][ordem_matriz], float submatriz[ordem_matriz-1][ordem_matriz-1], int linha_excluida, int coluna_excluida) {
     
     int i = 0, j = 0;
     for (int linha = 0; linha < ordem_matriz; linha++) {
@@ -43,13 +27,13 @@ void gerarSubmatriz(int ordem_matriz, int matriz[ordem_matriz][ordem_matriz], in
 }
 
 //função para obter a determinante usando laplace
-int determinante(int ordem_matriz, int matriz[ordem_matriz][ordem_matriz]) {
+float determinante(int ordem_matriz, float matriz[ordem_matriz][ordem_matriz]) {
     if (ordem_matriz == 1) {
         return matriz[0][0]; //no caso de uma matriz 1x1, o determinante é o único valor
     }
 
-    int submatriz[ordem_matriz-1][ordem_matriz-1];
-    int determinante_valor = 0;
+    float submatriz[ordem_matriz-1][ordem_matriz-1];
+    float determinante_valor = 0;
 
     for (int coluna_atual = 0; coluna_atual < ordem_matriz; coluna_atual++) {
         gerarSubmatriz(ordem_matriz, matriz, submatriz, 0, coluna_atual); //chama a função, informando que irá excluir remover a primeira linha e a coluna atual
@@ -59,20 +43,20 @@ int determinante(int ordem_matriz, int matriz[ordem_matriz][ordem_matriz]) {
 
     return determinante_valor;
 }
-int main(){
+int questao1(){
     int ordem_matriz;
     printf("Informe a ordem_matriz da matriz: ");
     scanf("%d",&ordem_matriz);
-    int matriz[ordem_matriz][ordem_matriz];
-    dar_valores_aleatorios(ordem_matriz, matriz);
+    float matriz[ordem_matriz][ordem_matriz];
+    dar_valores_aleatorios(ordem_matriz, ordem_matriz, matriz);
     for(i=0; i<ordem_matriz; i++) {
         for(j=0; j<ordem_matriz; j++) {
-            printf("%.2d ",matriz[i][j]);
+            printf("%.2f ",matriz[i][j]);
         }
         printf("\n");
 
     }
-    int valor_determinante = determinante(ordem_matriz, matriz);
-    printf("Determinante da matriz: %d\n", valor_determinante);
+    float valor_determinante = determinante(ordem_matriz, matriz);
+    printf("Determinante da matriz: %.2f\n", valor_determinante);
     return 0;
 }

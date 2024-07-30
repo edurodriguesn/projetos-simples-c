@@ -13,7 +13,7 @@ void projecao_ortogonal(float vetorA[3], float vetorB[3], float projecao[3]) {
     projecao[2] = escalar * vetorB[2];
 }
 
-int main() {
+int questao10() {
     float vetorA[3], vetorB[3], projecao[3];
 
     printf("Informe os componentes do vetor A (A1 A2 A3): ");

@@ -6,7 +6,7 @@ float calcular_area(float vertice1[2], float vertice2[2], float vertice3[2]) {
     return 0.5 * fabs(vertice1[0] * (vertice2[1] - vertice3[1]) + vertice2[0] * (vertice3[1] - vertice1[1]) + vertice3[0] * (vertice1[1] - vertice2[1]));
 }
 
-int main() {
+int questao7() {
     float vertice1[2];
     float vertice2[2];
     float vertice3[2];

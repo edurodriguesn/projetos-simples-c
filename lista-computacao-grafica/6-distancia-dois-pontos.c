@@ -5,7 +5,7 @@ float calcular_distancia(float ponto1[3], float ponto2[3]) {
     return sqrt(pow(ponto2[0] - ponto1[0], 2) + pow(ponto2[1] - ponto1[1], 2) + pow(ponto2[2] - ponto1[2], 2));
 }
 
-int main() {
+int questao6() {
     float ponto1[3];
     float ponto2[3];
 
