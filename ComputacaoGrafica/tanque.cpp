@@ -3,7 +3,7 @@
 float posicaoY = 0.0f;
 
 void displayBase() {
-    glColor3f(0.0f, 0.5f, 0.7f);  
+    glColor3f(0.1f, 0.1f, 0.44f);  
     glBegin(GL_QUADS);           
         glVertex2f(-0.14f, -0.3f + posicaoY);
         glVertex2f(0.14f, -0.3f + posicaoY);
@@ -13,7 +13,7 @@ void displayBase() {
 }
 
 void displayEsteiras() {
-    glColor3f(1.0f, 0.5f, 0.0f);  
+    glColor3f(0.7f, 0.13f, 0.13f);  
     // Esteira esquerda
     glBegin(GL_QUADS);
         glVertex2f(-0.24f, -0.35f + posicaoY);
@@ -31,7 +31,7 @@ void displayEsteiras() {
 }
 
 void displayCentro() {
-    glColor3f(0.0f, 0.4f, 0.0f);  
+    glColor3f(0.5f, 1.0f, 0.83f);  
     glBegin(GL_QUADS);
         glVertex2f(-0.1f, -0.09f + posicaoY);
         glVertex2f(0.1f, -0.09f + posicaoY);
@@ -41,7 +41,7 @@ void displayCentro() {
 }
 
 void displayCanhao() {
-    glColor3f(0.6f, 0.0f, 0.6f);  
+    glColor3f(0.2f, 0.0f, 0.1f);  
     glBegin(GL_QUADS);
         glVertex2f(-0.03f, 0.12f + posicaoY);
         glVertex2f(0.03f, 0.12f + posicaoY);
